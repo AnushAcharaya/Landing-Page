@@ -1,7 +1,48 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const DonateSection = () => {
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        amount: "",
+        message: ""
+
+    })
+
+    const [successMessage, setSuccessMessage] = useState("");
+
+    // Handle input change
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Show success message
+        setSuccessMessage("Thank you for your donation!");
+
+        //clear form
+        setFormData({
+            name: "",
+            email: "",
+            amount: "",
+            message: ""
+
+        });
+
+        setTimeout(() => {
+            setSuccessMessage("");
+        }, 3000);
+
+    };
+
     return (
         <div className="w-full flex flex-col md:flex-row items-stretch bg-gray-50">
             {/* Left Side */}
@@ -29,29 +70,49 @@ const DonateSection = () => {
                     Donate Now!
                 </motion.h2>
 
+                {successMessage && (
+                    <div className="bg-green-500 text-white text-center py-2 mb-4 rounded-md">
+                        {successMessage}
+                    </div>
+                )}
+
                 {/* Form */}
-                <form className="mt-8 flex flex-col gap-4 w-4/5 max-w-lg">
+                <form className="mt-8 flex flex-col gap-4 w-4/5 max-w-lg "
+                    onSubmit={handleSubmit}
+                >
                     <div className="flex gap-4">
                         <input
                             type="text"
+                            name="name"
                             placeholder="Full Name"
+                            value={formData.name}
+                            onChange={handleChange}
                             className="w-1/2 px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <input
                             type="email"
+                            name="email"
                             placeholder="Email Address"
+                            value={formData.email}
+                            onChange={handleChange}
                             className="w-1/2 px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
                     <input
                         type="text"
+                        name="amount"
                         placeholder="Donation amount"
+                        value={formData.amount}
+                        onChange={handleChange}
                         className="px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
                     <textarea
+                        name="message"
                         placeholder="Your message..."
+                        value={formData.message}
+                        onChange={handleChange}
                         className="px-4 py-3 rounded-md border border-gray-200 h-28 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     ></textarea>
 

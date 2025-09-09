@@ -63,7 +63,7 @@ const cards = [
 const FloatingCard = () => {
     return (
         <section className="w-full py-20 mt-12 bg-gray-100">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="w-full mx-auto px-6 lg:px-12">
                 {/* Top Content Row */}
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
@@ -111,7 +111,7 @@ const FloatingCard = () => {
 
                 {/* Cards Section */}
                 <motion.div
-                    className="flex mt-20 gap-0 w-full"
+                    className="flex flex-wrap mt-20 gap-0 w-full"
                     variants={containerVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -125,7 +125,7 @@ const FloatingCard = () => {
                             <motion.div
                                 key={index}
                                 variants={cardVariant}
-                                className="w-1/4"
+                                className="w-full sm:w-1/2 lg:w-1/4 px-2 mb-4"
                             >
                                 <motion.div
                                     animate={floatAnim}

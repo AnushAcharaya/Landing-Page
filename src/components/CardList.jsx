@@ -40,7 +40,11 @@ const CardList = () => {
             viewport={{ once: false, amount: 0.3 }}
         >
             {cardsData.map((card, index) => (
-                <Card key={index} {...card} />
+                <Card
+                    key={index}
+                    {...card}
+                    className="w-full md:w-[300px]"
+                />
             ))}
         </motion.div>
     );

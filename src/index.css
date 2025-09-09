@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 html {
     scrollbar-gutter: stable both-edges;
     height: 100%;
@@ -18,4 +19,16 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&display=swap');
+
+@layer base {
+    .font-bricolage {
+        font-family: "Bricolage Grotesque", sans-serif;
+    }
+}
+
+body {
+    font-family: "Bricolage Grotesque", sans-serif;
 }

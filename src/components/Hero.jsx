@@ -2,10 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const HeroSection = () => {
     return (
-        <section className="bg-gradient-to-b from-[#F8FAFC] to-white py-16">
+        <section className=" w-full bg-gradient-to-b from-[#F8FAFC] to-white py-16">
             <div className="w-full mx-auto px-6 md:px-12">
                 {/* Row: Left (image) + Right (heading + card) */}
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-24">
@@ -17,16 +18,22 @@ const HeroSection = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: false, amount: 0.2 }}
                     >
-                        <div className="relative w-full rounded-xl overflow-hidden">
-                            <h1 className="text-3xl md:text-5xl font-extrabold text-[#0A1F44] leading-tight">
-                                COMPASSIONATE CARE FOR CHILDREN WITH AUTISM
-                            </h1>
+                        <h1 className="text-3xl md:text-5xl font-extrabold text-[#0A1F44] leading-tight mb-10">
+                            COMPASSIONATE CARE FOR CHILDREN WITH AUTISM
+                        </h1>
+                        <div className="relative w-full rounded-xl ">
+
                             <img
                                 src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg"
                                 alt="Main"
-                                className="w-full h-[550px] md:h-[750px] object-cove"
+                                className="w-full h-[550px] md:h-[750px] object-cover"
                             />
-                            <div className="absolute -top-6 -right-6 bg-blue-700 text-white w-20 h-20 rounded-full flex items-center justify-center text-xl font-bold shadow-lg border-4 border-white">
+                            <div className="absolute -top-10 -right-10 md:-top-12 md:-right-12
+                                            bg-blue-700 text-white w-20 h-20 md:w-24 md:h-24
+                                            rounded-full flex items-center justify-center
+                                            text-xl md:text-2xl font-bold shadow-lg border-4 border-white
+                                            -translate-x-1/50 -translate-y-1/50"
+                            >
                                 25+
                             </div>
                         </div>
@@ -34,7 +41,7 @@ const HeroSection = () => {
 
                     {/* Right: Heading + Card */}
                     <motion.div
-                        className="w-full md:w-[40%] flex flex-col items-start gap-6 md:pl-8 mt-24"
+                        className="w-full md:w-[40%] flex flex-col items-start gap-6 md:pl-8 mt-40"
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
@@ -61,16 +68,19 @@ const HeroSection = () => {
                         <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
                             We provide care and support for autistic children, helping them grow confidently.
                         </p>
+                        <Link to="/error">
 
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2 hover:bg-blue-700 shadow-md"
-                        >
-                            LEARN MORE
-                            <span className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center">
-                                <ArrowUpRight className="w-4 h-4 text-white" />
-                            </span>
-                        </motion.button>
+
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2 hover:bg-blue-700 shadow-md"
+                            >
+                                LEARN MORE
+                                <span className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center">
+                                    <ArrowUpRight className="w-4 h-4 text-white" />
+                                </span>
+                            </motion.button>
+                        </Link>
 
                     </motion.div>
                 </div>

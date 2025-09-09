@@ -30,19 +30,43 @@ const SupportSection = () => {
     return (
         <div className="flex flex-col items-center text-center px-6 py-12">
             {/* Heading with inline images */}
-            <h1 className="text-3xl md:text-5xl font-semi-bold leading-snug text-[#12223B] max-w-6xl">
-                Dedicated to{" "}
-                <PopupImage src="./image2.png" alt="Kid Playing" />
-                Nurturing Autistic Children with Love, Patience, Understanding, and{" "}
-                <PopupImage src="./image1.jpg" alt="Kid Thinking" />
-                Personalized Support for a Brighter Tomorrow
-            </h1>
+            <div className="w-full flex justify-center">
+                <div className="w-full flex justify-center items-center text-center">
+                    <div className="w-full flex justify-center items-center">
+                        <h1 className="text-2xl md:text-4xl font-semibold leading-snug text-[#12223B] max-w-4xl text-center">
+                            Dedicated to{" "}
+                            <span className="inline-flex items-center gap-2">
+                                <PopupImage
+                                    src="./image2.png"
+                                    alt="Kid Playing"
+                                    className="w-10 h-10 object-cover rounded-full"
+                                />
+                                Nurturing Autistic Children
+                            </span>{" "}
+                            with Love, Patience, Understanding, and{" "}
+                            <span className="inline-flex items-center gap-2">
+                                <PopupImage
+                                    src="./image1.jpg"
+                                    alt="Kid Thinking"
+                                    className="w-10 h-10 object-cover rounded-full"
+                                />
+                                Personalized Support for a Brighter Tomorrow
+                            </span>
+                        </h1>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
 
             {/* Video Section */}
             <div className="mt-16 w-full max-w-6xl rounded-2xl overflow-hidden shadow-xl relative">
                 <video
                     ref={videoRef}
-                    src="/assets/videos/little-baby.mp4"
+                    src="/video1.mp4"
                     className="w-full h-[520px] object-cover rounded-2xl"
                     poster="./image4.jpg" // optional
                     controls={isPlaying} // only show controls after play

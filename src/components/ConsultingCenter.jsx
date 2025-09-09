@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Share2, ArrowRight } from "lucide-react";
+import { useState } from "react";
+
 
 const doctors = [
     {
@@ -16,6 +18,48 @@ const doctors = [
 ];
 
 export default function ConsultingSection() {
+
+    //state for form data
+    const [formData, setFormData] = useState({
+        fullName: "",
+        age: "",
+        email: "",
+        phone: "",
+        consultation: "",
+        condition: "",
+
+    });
+    const [successMessage, setSuccessMessage] = useState("");
+    //handle input change
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    //handle form submit
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        //show success message
+
+        setSuccessMessage("form submitted successfully")
+
+        //clear form
+        setFormData({
+            fullName: "",
+            age: "",
+            email: "",
+            phone: "",
+            consultation: "",
+            condition: "",
+
+        });
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+            setSuccessMessage("");
+        }, 3000);
+    }
+
     return (
         <section className="grid grid-cols-1 md:grid-cols-2">
             {/* LEFT SIDE */}
@@ -113,8 +157,15 @@ export default function ConsultingSection() {
                         Start Consulting
                     </motion.h3>
 
+                    {successMessage && (
+                        <div className="bg-green-500 text-white text-center py-2 mb-4 rounded-md">
+                            {successMessage}
+                        </div>
+                    )}
+
                     {/* Form + Button */}
                     <motion.form
+                        onSubmit={handleSubmit}
                         initial={{ x: 60, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         viewport={{ once: false, amount: 0.5 }}
@@ -124,35 +175,58 @@ export default function ConsultingSection() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <input
                                 type="text"
+                                name="fullName"
                                 placeholder="Full Name"
+                                value={formData.fullName}
+                                onChange={handleChange}
                                 className="p-3 rounded-md w-full text-black bg-blue-500"
+                                required
                             />
                             <input
                                 type="text"
+                                name="age"
+
                                 placeholder="Age"
+                                value={formData.age}
+                                onChange={handleChange}
                                 className="p-3 rounded-md w-full text-black bg-blue-500"
+                                required
                             />
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <input
                                 type="email"
+                                name="email"
                                 placeholder="Email Address"
+                                value={formData.email}
+                                onChange={handleChange}
                                 className="p-3 rounded-md w-full text-black bg-blue-500"
+                                required
                             />
                             <input
                                 type="text"
+                                name="phone"
                                 placeholder="Phone Number"
+                                value={formData.phone}
+                                onChange={handleChange}
                                 className="p-3 rounded-md w-full text-black bg-blue-500"
+                                required
                             />
                         </div>
                         <input
                             type="text"
+                            name="consultation"
                             placeholder="Free Consultation"
+                            value={formData.consultation}
+                            onChange={handleChange}
                             className="p-3 rounded-md w-full text-black bg-blue-500"
                         />
                         <textarea
+                            name="condition"
                             placeholder="About Mental Condition"
                             rows="4"
+                            value={formData.condition}
+                            onChange={handleChange}
                             className="p-3 rounded-md w-full text-black bg-blue-500"
                         ></textarea>
 

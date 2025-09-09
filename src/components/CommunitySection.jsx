@@ -26,14 +26,14 @@ const Counter = ({ target }) => {
 const CommunitySection = () => {
 
     const images = [
-        { src: "/image1.jpg", className: "top-10 left-20 rotate-[-8deg]" },
-        { src: "/image2.png", className: "top-10 right-20 rotate-[-8deg]" },
-        { src: "/image3.jpg", className: "bottom-10 left-28 rotate-[6deg]" },
-        { src: "/image4.jpg", className: "bottom-10 right-28 rotate-[-6deg]" },
+        { src: "/image1.jpg", className: "top-[-10%] left-0 sm:top-0 sm:left-4 md:left-8 rotate-[-8deg]" },
+        { src: "/image2.png", className: "top-[-10%] right-0 sm:top-0 sm:right-4 md:right-8 rotate-[-8deg]" },
+        { src: "/image3.jpg", className: "bottom-[-10%] left-0 sm:bottom-0 sm:left-6 md:left-10 rotate-[6deg]" },
+        { src: "/image4.jpg", className: "bottom-[-10%] right-0 sm:bottom-0 sm:right-6 md:right-10 rotate-[-6deg]" },
     ];
 
     return (
-        <div className='relative flex flex-col items-center justify-center py-24 overflow-hidden bg-white'>
+        <div className='relative flex flex-col items-center justify-center py-24 overflow-hidden bg-white mb-16'>
             {/* Images */}
             {images.map((img, i) => (
                 <motion.img
@@ -55,7 +55,8 @@ const CommunitySection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewPort={{ once: false }}
-                className="text-xl md:text-2xl text-center max-w-2xl font-bold text-gray-800 mb-4"
+                className="ext-xl sm:text-2xl md:text-3xl text-center font-bold text-gray-800 mb-4
+             max-w-xs sm:max-w-md md:max-w-2xl px-4 break-words"
             >
                 Join us on a journey to empower communities and transform the lives of autistic children.
 
