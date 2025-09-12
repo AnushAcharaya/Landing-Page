@@ -85,6 +85,13 @@ const Nav = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="absolute left-1/2 -translate-x-1/2 z-50 bg-white text-[#0A1F44] shadow-xl rounded-md w-72 overflow-hidden py-2"
+
+                                style={{
+                                    top: "100%", // Appear just below the parent
+                                    left: "50%",
+                                    transform: "translateX(-50%)",
+                                    border: "1px solid #e5e7eb",
+                                }}
                             >
                                 {items.dropdown.map((subItems, idx) => {
                                     let subPath = "";
